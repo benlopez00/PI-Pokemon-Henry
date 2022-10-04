@@ -17,12 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const { loadDb } = require('./src/routes/middlewares');
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 
+
+
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+conn.sync({ force: false }).then(() => {
+  server.listen(3001, async () => {
+    loadDb();
+    console.log('%s CLAP!'); // eslint-disable-line no-console
   });
 });
