@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Types } = require('../db');
 
-/* router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const types = await Types.findAll();
         res.send(types);
@@ -27,6 +27,6 @@ router.post('/', async (req, res) => {
         res.send({ msg: err.message });
     }
 })
- */
+
 
 module.exports = router;
